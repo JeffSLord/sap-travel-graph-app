@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="TravelApp.TravelDB::TripRoutings" applyPrivilegeType="NONE" dataCategory="DEFAULT" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="TripRoutings" applyPrivilegeType="NONE" dataCategory="DEFAULT" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
 <descriptions defaultDescription="TripRoutings"/>
 <localVariables>
   <variable id="country" parameter="true">
@@ -38,7 +38,7 @@
 <variableMappings/>
 <dataSources/>
 <calculationViews>
-  <calculationView xsi:type="Calculation:GraphView" id="Graph_1" workspace="TravelApp.TravelDB::Flights" action="SCRIPT_PATTERN_MATCHING">
+  <calculationView xsi:type="Calculation:GraphView" id="Graph_1" workspace="Flights" action="SCRIPT_PATTERN_MATCHING">
     <viewAttributes>
       <viewAttribute datatype="NVARCHAR" length="3" id="airportCodeFrom"/>
       <viewAttribute datatype="NVARCHAR" length="3" id="airportCodeTo"/>
@@ -47,7 +47,6 @@
       <viewAttribute datatype="INTEGER" length="10" id="altitude"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <restrictedViewAttributes/>
     <scriptPatternMatching language="CYPHER">
       <expression><![CDATA[MATCH (a)-[e]->(b)
 WHERE a.country = '$$country$$' AND e.distance $$_distance$$ AND b.altitude $$_altitude$$ $$customFilter$$

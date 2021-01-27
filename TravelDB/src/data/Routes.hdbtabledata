@@ -3,10 +3,10 @@
 	"imports":
 	[
         {
-            "target_table": "TravelApp.TravelDB::Tables.Airports",
+            "target_table": "Tables.Routes",
             "source_data": {
                 "data_type": "CSV",
-                "file_name": "TravelApp.TravelDB::Airports.csv",
+                "file_name": "Routes.csv",
                 "has_header": true,
 				"type_config" : { 
 					"delimiter" : ",", 
@@ -15,7 +15,7 @@
             },
             "import_settings": {
                 "import_columns": [
-					"airportCode","airportName","city","country","location","altitude","offsetUTC","passengers"
+					"airlineCode","airlineName","allianceName","airportCodeOrigin","airportCodeDestination","distance","duration"
 				]
             }
         }

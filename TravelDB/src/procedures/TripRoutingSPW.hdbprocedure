@@ -1,4 +1,4 @@
-PROCEDURE "TravelApp.TravelDB::TripRoutingSPW" (IN weight VARCHAR(10), IN airportCodeOrigin NVARCHAR(3), IN airportCodeDestination NVARCHAR(3), OUT totalSegments BigInt, OUT totalDistance Int, OUT totalDuration Int, OUT routing "TravelApp.TravelDB::Tables.TripRoutingTT")
+PROCEDURE "TripRoutingSPW" (IN weight VARCHAR(10), IN airportCodeOrigin NVARCHAR(3), IN airportCodeDestination NVARCHAR(3), OUT totalSegments BigInt, OUT totalDistance Int, OUT totalDuration Int, OUT routing "Tables.TripRoutingTT")
    LANGUAGE GRAPH
    SQL SECURITY INVOKER
    --DEFAULT SCHEMA <default_schema_name>
@@ -7,7 +7,7 @@ BEGIN
    /*************************************
        Write your procedure logic 
    *************************************/
-	Graph g = Graph("TravelApp.TravelDB::Flights");
+	Graph g = Graph("Flights");
 	Vertex sourceVertex = Vertex(:g, :airportCodeOrigin);
 	Vertex targetVertex = Vertex(:g, :airportCodeDestination);
 	IF (:weight == 'distance') {

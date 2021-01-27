@@ -1,4 +1,4 @@
-namespace TravelApp.TravelDB;
+// namespace TravelApp.TravelDB;
 
 context Tables {
     entity Airports {

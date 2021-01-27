@@ -1,8 +1,0 @@
-graph workspace "TravelApp.TravelDB::Flights"
- edge table "TravelApp.TravelDB::Tables.Routes"
-  source column "airportCodeOrigin"
-  target column "airportCodeDestination"
-  key column "routeId"
- vertex table "TravelApp.TravelDB::Tables.Airports"
-  key column "airportCode"
- ;
